@@ -1,0 +1,11 @@
+# Screenshots e relatórios locais
+*.png.bak
+*.log
+*.tmp
+relatorios/
+screenshots/
+.gemini/
+.idea/
+.vscode/
+Thumbs.db
+Desktop.ini

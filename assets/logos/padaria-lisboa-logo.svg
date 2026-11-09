@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 360" width="100%" height="100%">
+  <defs>
+    <!-- Gradiente Dourado Nobre para os Aros -->
+    <linearGradient id="goldRim" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f5e2b3"/>
+      <stop offset="35%" stop-color="#cbb075"/>
+      <stop offset="70%" stop-color="#dfc488"/>
+      <stop offset="100%" stop-color="#a8843c"/>
+    </linearGradient>
+
+    <!-- Fundo Marrom Chocolate Profundo Tradicional -->
+    <radialGradient id="brownBg" cx="50%" cy="45%" r="65%">
+      <stop offset="0%" stop-color="#46160e"/>
+      <stop offset="60%" stop-color="#320f09"/>
+      <stop offset="100%" stop-color="#200703"/>
+    </radialGradient>
+
+    <!-- Sombra Elegante do Selo -->
+    <filter id="sealShadow" x="-10%" y="-10%" width="120%" height="125%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#sealShadow)">
+    <!-- Borda Externa Escura -->
+    <ellipse cx="270" cy="180" rx="252" ry="162" fill="#200703" stroke="#5a2014" stroke-width="2"/>
+
+    <!-- Aro Dourado Externo -->
+    <ellipse cx="270" cy="180" rx="244" ry="154" fill="none" stroke="url(#goldRim)" stroke-width="7"/>
+
+    <!-- Fita Marrom Intermediária -->
+    <ellipse cx="270" cy="180" rx="236" ry="146" fill="none" stroke="#2a0b06" stroke-width="4"/>
+
+    <!-- Aro Dourado Interno Fino -->
+    <ellipse cx="270" cy="180" rx="230" ry="140" fill="none" stroke="#eedab0" stroke-width="2.5"/>
+
+    <!-- Núcleo Oval Chocolate -->
+    <ellipse cx="270" cy="180" rx="226" ry="136" fill="url(#brownBg)"/>
+
+    <!-- Texto Principal: Lisboa -->
+    <text x="270" y="152" 
+          font-family="'Lora', 'Times New Roman', serif" 
+          font-size="74" 
+          font-weight="700" 
+          letter-spacing="1.5" 
+          fill="#FFFFFF" 
+          text-anchor="middle"
+          style="text-shadow: 0 3px 6px rgba(0,0,0,0.5);">
+      Lisboa
+    </text>
+
+    <!-- Detalhe Ornamental Fino -->
+    <g transform="translate(270, 168)" opacity="0.85">
+      <path d="M-85,0 C-45,-4 -20,-2 0,0 C20,-2 45,-4 85,0" fill="none" stroke="url(#goldRim)" stroke-width="1.6"/>
+      <circle cx="-90" cy="0" r="2.2" fill="#eedab0"/>
+      <circle cx="0" cy="0" r="3" fill="#eedab0"/>
+      <circle cx="90" cy="0" r="2.2" fill="#eedab0"/>
+    </g>
+
+    <!-- Subtítulo: Desde 1913 -->
+    <text x="270" y="218" 
+          font-family="'Lora', 'Times New Roman', serif" 
+          font-size="46" 
+          font-weight="600" 
+          letter-spacing="2.8" 
+          fill="#fbf5ea" 
+          text-anchor="middle"
+          style="text-shadow: 0 2px 5px rgba(0,0,0,0.4);">
+      Desde 1913
+    </text>
+
+    <!-- Lema Centenário: O Melhor Pão -->
+    <text x="270" y="260" 
+          font-family="'Lora', 'Times New Roman', serif" 
+          font-size="28" 
+          font-weight="500" 
+          letter-spacing="1.5" 
+          fill="#cdb98a" 
+          text-anchor="middle">
+      O Melhor Pão
+    </text>
+  </g>
+</svg>

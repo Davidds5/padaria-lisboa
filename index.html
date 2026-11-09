@@ -1,0 +1,2964 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Local Otimizado para Padaria Lisboa no Tatuapé -->
+  <title>Padaria Lisboa 1913 | Tradição Centenária no Tatuapé - Peça Online</title>
+  <meta name="description" content="Fundada em 1913 na Praça Silvio Romero, Tatuapé. Mais de 100 anos e 4 gerações de forno aquecido. Pães artesanais quentinhos, confeitaria fina e café direto na sua casa pelo ePadoca, iFood, Food To Save ou WhatsApp.">
+  <meta name="keywords" content="Padaria Lisboa, Padaria Lisboa Tatuapé, Praça Silvio Romero, padaria tradicional Tatuapé, pão artesanal São Paulo, delivery padaria, ePadoca Lisboa, iFood Lisboa Tatuapé">
+  <meta name="author" content="Padaria Lisboa">
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- Open Graph / Redes Sociais -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Padaria Lisboa 1913 | Tradição Centenária no Tatuapé">
+  <meta property="og:description" content="A mesma qualidade e aroma inconfundível da nossa padaria na Praça Silvio Romero, no aplicativo que você preferir.">
+  <meta property="og:locale" content="pt_BR">
+
+  <!-- Favicon com o logo oficial da Padaria Lisboa 1913 -->
+  <link rel="icon" href="assets/logos/padaria-lisboa-logo.png" type="image/png">
+
+  <!-- Google Fonts: Lora (títulos nobres) & Montserrat (interface elegante) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600;1,700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- GSAP 3 & ScrollTrigger via CDN para Animações e Parallax de Alto Nível -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- =====================================================================
+       CANAIS DE PEDIDO (CONFIGURAÇÃO NO TOPO DO ARQUIVO PARA FÁCIL EDIÇÃO)
+       - nome: Nome de exibição da plataforma
+       - logo: Arquivo local em assets/logos/ (PNG ou SVG)
+       - sigla: Fallback caso o arquivo de logo ainda não esteja na pasta
+       - url: Link do canal ("#" com comentário TODO para os pendentes)
+       ===================================================================== -->
+  <script>
+    const CANAIS_PEDIDO = [
+      {
+        id: "epadoca",
+        nome: "ePadoca",
+        badge: "Canal Oficial",
+        descricao: "Cardápio 100% completo com fornadas em tempo real, preços oficiais e entrega expressa da nossa casa para a sua.",
+        fundoLogo: "#FFFFFF",
+        logo: "assets/logos/padaria-lisboa-logo.svg",
+        sigla: "PL",
+        url: "https://epadoca.com/lisboa",
+        destaque: true // Primeiro card maior e em evidência máxima
+      },
+      {
+        id: "ifood",
+        nome: "iFood",
+        descricao: "Peça pelo seu app favorito com cupons, Clube iFood e acompanhamento da entrega na palma da sua mão.",
+        fundoLogo: "#FFFFFF",
+        logo: "assets/logos/ifood.png",
+        sigla: "iF",
+        url: "https://www.ifood.com.br/delivery/sao-paulo-sp/padaria-lisboa-1913-tatuape/e00826fc-0f57-4356-8988-db913e2aebf8"
+      },
+      {
+        id: "whatsapp",
+        nome: "WhatsApp",
+        descricao: "Fale diretamente com nossa equipe de balcão para encomendas personalizadas, cestas de café e festas.",
+        fundoLogo: "#FFFFFF",
+        logo: "assets/logos/whatsapp.png",
+        sigla: "WA",
+        url: "https://wa.me/5511966019392?text=Ol%C3%A1%2C%20gostaria%20de%20fazer%20um%20pedido%20na%20Padaria%20Lisboa"
+      },
+      {
+        id: "foodtosave",
+        nome: "Food To Save",
+        descricao: "Sacolas surpresa com delícias fresquinhas do nosso dia com desconto exclusivo de combate ao desperdício.",
+        fundoLogo: "#FFFFFF",
+        logo: "assets/logos/foodtosave.png",
+        sigla: "FS",
+        url: "https://www.foodtosave.com.br/onde-estamos/sp/sao-paulo/cidade-mae-do-ceu/padaria-lisboa"
+      },
+      {
+        id: "keeta",
+        nome: "Keeta",
+        descricao: "Peça pelo app Keeta com descontos especiais de lançamento e rastreamento em tempo real.",
+        fundoLogo: "#FFFFFF",
+        logo: "assets/logos/keeta.png",
+        sigla: "K",
+        url: "#" // TODO: Inserir link da Padaria Lisboa no Keeta
+      }
+    ];
+  </script>
+
+  <style>
+    /* =====================================================================
+       VARIÁVEIS DE DESIGN & RITMO VISUAL
+       ===================================================================== */
+    :root {
+      /* Paleta Tradicional Nobre da Padaria Lisboa 1913 */
+      --marrom-escuro: #5c1a12;
+      --marrom-profundo: #3e100b;
+      --marrom-noite: #260906;
+      --areia: #cdb98a;
+      --areia-suave: #efe5cc;
+      --areia-borda: #e3d3a8;
+      --creme: #faf6ea;
+      --creme-claro: #fffaf0;
+      --creme-escuro: #f0e6cf;
+      --dourado: #d4a94f;
+      --dourado-claro: #f3ce7a;
+      --dourado-hover: #b88b32;
+      --dourado-escuro: #8c631e;
+      
+      --texto-escuro: #241410;
+      --texto-suave: #543d34;
+      --texto-claro: #faf6ea;
+      --texto-muted: #8a766a;
+
+      --borda-clara: #e3d3a8;
+      --borda-dourada: rgba(212, 169, 79, 0.45);
+      --borda-escura: rgba(62, 16, 11, 0.15);
+
+      --radius-sm: 10px;
+      --radius-md: 18px;
+      --radius-lg: 24px;
+      --radius-pill: 9999px;
+
+      --sombra-card: 0 10px 30px -10px rgba(62, 16, 11, 0.12), 0 4px 12px rgba(62, 16, 11, 0.05);
+      --sombra-hover: 0 24px 48px -12px rgba(62, 16, 11, 0.28), 0 8px 18px rgba(62, 16, 11, 0.15);
+      --sombra-dourada: 0 8px 25px rgba(212, 169, 79, 0.45);
+      --sombra-hero-btn: 0 12px 36px rgba(212, 169, 79, 0.5), 0 4px 12px rgba(0, 0, 0, 0.3);
+
+      --fonte-titulo: 'Lora', Georgia, serif;
+      --fonte-corpo: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+
+      --header-h: 82px;
+      --ease-padaria: cubic-bezier(.22, 1, .36, 1);
+      --transicao: all 0.4s var(--ease-padaria);
+    }
+
+    /* Reset & Base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      background-color: var(--creme);
+      color: var(--texto-escuro);
+      font-family: var(--fonte-corpo);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      max-width: 100vw;
+      width: 100%;
+      position: relative;
+    }
+
+    /* Textura de grão/papel sutil */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 999;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: var(--transicao);
+    }
+
+    button {
+      font-family: inherit;
+      border: none;
+      background: none;
+      cursor: pointer;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 2;
+    }
+
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--dourado);
+      outline-offset: 4px;
+    }
+
+    /* =====================================================================
+       BARRA DE PROGRESSO DE ROLAGEM DOURADA NO TOPO
+       ===================================================================== */
+    .scroll-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3.5px;
+      width: 0%;
+      background: linear-gradient(90deg, #cdb98a 0%, #d4a94f 50%, #fffdf8 100%);
+      z-index: 10001;
+      pointer-events: none;
+      box-shadow: 0 0 10px rgba(212, 169, 79, 0.8);
+      transition: width 0.08s ease-out;
+    }
+
+    /* =====================================================================
+       ELEMENTOS DECORATIVOS FLUTUANDO NO FUNDO (PARALLAX)
+       ===================================================================== */
+    .floating-decor-layer {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .decor-item {
+      position: absolute;
+      opacity: 0.16;
+      color: var(--dourado);
+      will-change: transform;
+      user-select: none;
+    }
+
+    .decor-wheat-1 { top: 12%; left: 4%; width: 56px; }
+    .decor-coffee-1 { top: 48%; right: 5%; width: 42px; opacity: 0.18; }
+    .decor-star-1 { top: 78%; left: 8%; width: 36px; }
+    .decor-wheat-2 { top: 88%; right: 7%; width: 64px; }
+
+    /* =====================================================================
+       HEADER COM VIDRO E TRANSIÇÃO DINÂMICA
+       ===================================================================== */
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: var(--header-h);
+      z-index: 1000;
+      transition: background-color 0.4s var(--ease-padaria), box-shadow 0.4s var(--ease-padaria), height 0.4s var(--ease-padaria);
+      background: linear-gradient(180deg, rgba(38, 9, 6, 0.8) 0%, rgba(38, 9, 6, 0) 100%);
+    }
+
+    .site-header.scrolled {
+      height: 70px;
+      background-color: rgba(62, 16, 11, 0.96);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+      border-bottom: 1px solid rgba(212, 169, 79, 0.22);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-logo-img {
+      height: 48px;
+      width: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--dourado);
+      box-shadow: 0 0 16px rgba(212, 169, 79, 0.45);
+      flex-shrink: 0;
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: crisp-edges;
+      transition: transform 0.4s var(--ease-padaria);
+    }
+
+    .brand-logo:hover .brand-logo-img {
+      transform: scale(1.08) rotate(-3deg);
+    }
+
+    /* Círculo Nobre do Brasão no Hero (Fundo Creme #faf6ea, Borda Dourada #d4a94f e Sombra Suave) */
+    .hero-brasao-circle {
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      background-color: var(--creme);
+      border: 2px solid var(--dourado);
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45), 0 0 24px rgba(212, 169, 79, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      padding: 16px;
+      overflow: hidden;
+      transition: transform 0.4s var(--ease-padaria), box-shadow 0.4s ease;
+    }
+
+    .hero-brasao-circle:hover {
+      transform: scale(1.05);
+      box-shadow: 0 16px 44px rgba(0, 0, 0, 0.55), 0 0 30px rgba(212, 169, 79, 0.5);
+    }
+
+    .hero-brasao-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      filter: drop-shadow(0 4px 10px rgba(62, 16, 11, 0.2));
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: crisp-edges;
+    }
+
+    .footer-brasao-img {
+      max-width: 125px;
+      width: 100%;
+      height: auto;
+      margin: 0 auto 16px;
+      display: block;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.65));
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: crisp-edges;
+      transition: transform 0.3s ease;
+    }
+
+    .footer-brasao-img:hover {
+      transform: scale(1.05);
+    }
+
+    .brand-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--dourado) 0%, #a47a27 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--fonte-titulo);
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--marrom-noite);
+      box-shadow: 0 0 15px rgba(212, 169, 79, 0.4);
+      flex-shrink: 0;
+      transition: transform 0.4s var(--ease-padaria);
+    }
+
+    .brand-logo:hover .brand-icon {
+      transform: rotate(-10deg) scale(1.08);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-family: var(--fonte-titulo);
+      font-size: 1.85rem;
+      font-weight: 700;
+      color: var(--creme);
+      line-height: 1;
+      letter-spacing: 0.5px;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    }
+
+    .brand-sub {
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2.8px;
+      color: var(--dourado);
+      margin-top: 3px;
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .nav-link {
+      color: var(--creme);
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      position: relative;
+      padding: 6px 0;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--dourado);
+      transition: width 0.3s var(--ease-padaria);
+    }
+
+    .nav-link:hover {
+      color: var(--dourado);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .btn-header-cta {
+      background: linear-gradient(135deg, var(--dourado-claro) 0%, var(--dourado) 100%);
+      color: var(--marrom-noite);
+      padding: 11px 24px;
+      border-radius: var(--radius-pill);
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.4px;
+      box-shadow: 0 4px 18px rgba(212, 169, 79, 0.35);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transicao);
+    }
+
+    /* =====================================================================
+       HERO (100svh COM PARALLAX NO FUNDO E NOS TEXTOS)
+       ===================================================================== */
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 20px 80px;
+      overflow: hidden;
+    }
+
+    .hero-bg-layer {
+      position: absolute;
+      top: -15%;
+      left: 0;
+      width: 100%;
+      height: 130%;
+      background: url('https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1920&q=85') center center / cover no-repeat;
+      will-change: transform;
+      z-index: 0;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 45%, rgba(62, 16, 11, 0.76) 0%, rgba(38, 9, 6, 0.94) 100%);
+      backdrop-filter: blur(1.5px);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 920px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      will-change: transform, opacity;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 24px;
+      border-radius: var(--radius-pill);
+      background: rgba(212, 169, 79, 0.15);
+      border: 1px solid var(--dourado);
+      color: var(--dourado-claro);
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 24px;
+      box-shadow: 0 0 20px rgba(212, 169, 79, 0.2);
+      backdrop-filter: blur(6px);
+      animation: pulseBadge 3s infinite ease-in-out;
+    }
+
+    @keyframes pulseBadge {
+      0%, 100% { box-shadow: 0 0 15px rgba(212, 169, 79, 0.25); }
+      50% { box-shadow: 0 0 28px rgba(212, 169, 79, 0.55); border-color: var(--dourado-claro); }
+    }
+
+    .hero-title {
+      font-family: var(--fonte-titulo);
+      font-size: clamp(2.6rem, 5.5vw, 4.8rem);
+      font-weight: 700;
+      color: #FFFFFF;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--dourado-claro);
+      font-weight: 400;
+    }
+
+    .ornament-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      width: 100%;
+      max-width: 320px;
+      margin: 0 auto 24px;
+    }
+
+    .ornament-line {
+      height: 1px;
+      flex: 1;
+      background: linear-gradient(90deg, transparent, var(--dourado), transparent);
+    }
+
+    .ornament-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--dourado);
+      transform: rotate(45deg);
+      box-shadow: 0 0 8px var(--dourado);
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.05rem, 2vw, 1.3rem);
+      color: var(--areia-suave);
+      max-width: 700px;
+      line-height: 1.7;
+      margin-bottom: 40px;
+      font-weight: 400;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Botão Dourado com Efeito Magnético */
+    .btn-hero-ouro {
+      background: linear-gradient(135deg, #f8df9f 0%, var(--dourado) 60%, #b88a30 100%);
+      color: var(--marrom-noite);
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      padding: 20px 44px;
+      border-radius: var(--radius-pill);
+      box-shadow: var(--sombra-hero-btn);
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      will-change: transform;
+      transition: box-shadow 0.3s ease, filter 0.3s ease;
+    }
+
+    .btn-hero-ouro::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 40%;
+      height: 200%;
+      background: rgba(255, 255, 255, 0.35);
+      transform: rotate(25deg);
+      transition: all 0.6s ease;
+    }
+
+    .btn-hero-ouro:hover::before {
+      left: 130%;
+    }
+
+    .btn-hero-ouro:hover {
+      box-shadow: 0 18px 45px rgba(212, 169, 79, 0.7), 0 6px 16px rgba(0, 0, 0, 0.4);
+      filter: brightness(1.03);
+    }
+
+    .arrow-slide {
+      display: inline-block;
+      transition: transform 0.3s var(--ease-padaria);
+    }
+
+    .btn-hero-ouro:hover .arrow-slide {
+      transform: translateX(6px);
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: var(--areia);
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity: 0.85;
+      transition: var(--transicao);
+    }
+
+    .scroll-indicator:hover {
+      opacity: 1;
+      color: var(--dourado-claro);
+    }
+
+    .scroll-mouse {
+      width: 22px;
+      height: 34px;
+      border: 2px solid var(--areia);
+      border-radius: 12px;
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    .scroll-wheel {
+      width: 4px;
+      height: 8px;
+      background: var(--dourado);
+      border-radius: 2px;
+      position: absolute;
+      top: 6px;
+      animation: mouseWheel 2s infinite ease-in-out;
+    }
+
+    @keyframes mouseWheel {
+      0% { transform: translateY(0); opacity: 1; }
+      80% { transform: translateY(12px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 0; }
+    }
+
+    /* =====================================================================
+       FAIXA MARQUEE INTERATIVA AO SCROLL
+       ===================================================================== */
+    .marquee-strip {
+      background: var(--marrom-profundo);
+      border-top: 1px solid var(--borda-dourada);
+      border-bottom: 1px solid var(--borda-dourada);
+      padding: 16px 0;
+      overflow: hidden;
+      white-space: nowrap;
+      position: relative;
+      z-index: 10;
+    }
+
+    .marquee-track {
+      display: inline-flex;
+      gap: 32px;
+      will-change: transform;
+    }
+
+    .marquee-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      font-family: var(--fonte-titulo);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--creme);
+      letter-spacing: 1px;
+    }
+
+    .marquee-item span.bullet {
+      color: var(--dourado);
+      font-size: 1.3rem;
+    }
+
+    /* =====================================================================
+       CANAIS DE PEDIDO (A ESTRELA DA PÁGINA COM LOGOS E TILT 3D)
+       ===================================================================== */
+    .canais-section {
+      padding: 96px 0;
+      background-color: var(--creme);
+      position: relative;
+    }
+
+    /* Textura sutil de papel kraft na seção de canais */
+    .canais-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseCanais'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseCanais)'/%3E%3C/svg%3E");
+      z-index: 1;
+    }
+
+    .section-kicker {
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--dourado-escuro);
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .section-header-center {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 56px;
+    }
+
+    .section-title-large {
+      font-family: var(--fonte-titulo);
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      font-weight: 700;
+      color: var(--marrom-escuro);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .section-desc-lead {
+      font-size: 1.1rem;
+      color: var(--texto-suave);
+      line-height: 1.7;
+    }
+
+    .canais-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 28px;
+      perspective: 1200px;
+    }
+
+    /* Card Oficial ePadoca (Destaque Maior com Fundo Marrom Escuro, Texto Creme e Botão Dourado) */
+    .canal-card-epadoca {
+      grid-column: span 12;
+      background: linear-gradient(135deg, var(--marrom-escuro) 0%, var(--marrom-profundo) 100%);
+      color: var(--creme);
+      border: 2px solid var(--dourado);
+      border-radius: var(--radius-lg);
+      padding: 36px 40px;
+      box-shadow: 0 16px 40px rgba(62, 16, 11, 0.32);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      transform-style: preserve-3d;
+      will-change: transform;
+      transition: transform 0.25s var(--ease-padaria), box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+
+    /* Brilho dinâmico nos cards que segue o cursor */
+    .card-radial-glow {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(212, 169, 79, 0.22) 0%, transparent 60%);
+      z-index: 1;
+    }
+
+    .canal-card-epadoca:hover .card-radial-glow,
+    .canal-card-padrao:hover .card-radial-glow {
+      opacity: 1;
+    }
+
+    .canal-card-epadoca:hover {
+      box-shadow: 0 28px 56px rgba(62, 16, 11, 0.45);
+      border-color: var(--dourado-claro);
+    }
+
+    .epadoca-main-info {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex: 1;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Bloco do Logo Branco Puro #ffffff, Borda Dourada 2px e Sombra Marcada */
+    .logo-badge-container {
+      width: 72px;
+      height: 72px;
+      border-radius: 16px;
+      background-color: #ffffff !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(62, 16, 11, 0.25);
+      flex-shrink: 0;
+      position: relative;
+      overflow: hidden;
+      will-change: transform;
+      animation: logoFloat 3s ease-in-out infinite;
+      border: 2px solid var(--dourado);
+      padding: 8px;
+      transition: transform 0.3s var(--ease-padaria), border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .logo-badge-container.is-app-icon {
+      padding: 8px;
+      background-color: #ffffff !important;
+    }
+
+    .logo-badge-container.is-app-icon .logo-img,
+    .logo-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 10px;
+      display: block;
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: crisp-edges;
+    }
+
+    /* Brasão nobre no card oficial do ePadoca */
+    .canal-card-epadoca .logo-badge-container {
+      width: 72px;
+      height: 72px;
+      border-radius: 16px;
+      background-color: #ffffff !important;
+      border: 2px solid var(--dourado);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+      padding: 8px;
+    }
+
+    .canal-card-epadoca .logo-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transform: none;
+      border-radius: 0;
+      filter: none;
+    }
+
+    /* Hover no card: leve zoom no bloco do logo (1.06) e borda mais forte */
+    .canal-card-padrao:hover .logo-badge-container,
+    .canal-card-epadoca:hover .logo-badge-container {
+      transform: scale(1.06);
+      border-color: var(--dourado-hover);
+      box-shadow: 0 6px 18px rgba(62, 16, 11, 0.35), 0 0 12px rgba(212, 169, 79, 0.3);
+      animation-play-state: paused;
+    }
+
+    @keyframes logoFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    .logo-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: crisp-edges;
+    }
+
+    .logo-fallback-sigla {
+      width: 100%;
+      height: 100%;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.35rem;
+      color: var(--marrom-escuro);
+      font-family: var(--fonte-corpo);
+      user-select: none;
+    }
+
+    .epadoca-text-content {
+      max-width: 600px;
+    }
+
+    .badge-oficial-topo {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(212, 169, 79, 0.2);
+      border: 1px solid var(--dourado);
+      color: var(--dourado-claro);
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      padding: 4px 12px;
+      border-radius: var(--radius-pill);
+      margin-bottom: 8px;
+    }
+
+    .canal-titulo-epadoca {
+      font-family: var(--fonte-titulo);
+      font-size: 2rem;
+      color: var(--creme);
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .canal-desc-epadoca {
+      font-size: 0.98rem;
+      color: var(--areia-suave);
+      line-height: 1.6;
+    }
+
+    .btn-pedir-epadoca {
+      background: linear-gradient(135deg, var(--dourado-claro) 0%, var(--dourado) 100%);
+      color: var(--marrom-noite);
+      font-size: 1.05rem;
+      font-weight: 800;
+      padding: 18px 36px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--dourado-claro);
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 8px 25px rgba(212, 169, 79, 0.4);
+      white-space: nowrap;
+      position: relative;
+      z-index: 2;
+      will-change: transform;
+      transition: filter 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    }
+
+    .btn-pedir-epadoca:hover {
+      filter: brightness(1.08);
+      box-shadow: 0 12px 32px rgba(212, 169, 79, 0.6);
+      transform: translateY(-2px);
+    }
+
+    .btn-pedir-epadoca:hover .arrow-slide {
+      transform: translateX(6px);
+    }
+
+    /* Cards Secundários em Creme #f3e9d0 para o bloco branco saltar, com Borda Fina Areia e Sombra Marcada */
+    .canal-card-padrao {
+      grid-column: span 6;
+      background: #f3e9d0;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--areia-borda);
+      padding: 32px 28px;
+      box-shadow: 0 10px 26px -6px rgba(62, 16, 11, 0.12), 0 4px 10px rgba(62, 16, 11, 0.06);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+      transform-style: preserve-3d;
+      will-change: transform;
+      transition: transform 0.25s var(--ease-padaria), box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+
+    /* Barra colorida removida do topo */
+    .canal-card-padrao::before {
+      display: none;
+    }
+
+    /* Hover com borda dourada, sem trocar a cor do card */
+    .canal-card-padrao:hover {
+      background: #f3e9d0;
+      box-shadow: 0 18px 38px -8px rgba(62, 16, 11, 0.18), 0 6px 14px rgba(62, 16, 11, 0.08);
+      border-color: var(--dourado);
+    }
+
+    /* Com número ímpar de cards, o último ocupa a linha inteira centralizado, sem espaço vazio ao lado */
+    .canal-card-padrao.is-last-odd,
+    .canal-card-padrao:last-child:nth-child(even) {
+      grid-column: 1 / -1;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+    }
+
+    .canal-top-header {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Nome do canal em marrom escuro #3e100b, maior e em negrito */
+    .canal-title-standard {
+      font-family: var(--fonte-titulo);
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: #3e100b;
+      letter-spacing: 0.3px;
+    }
+
+    /* Texto da descrição em marrom #5c1a12 */
+    .canal-desc-standard {
+      font-size: 0.96rem;
+      font-weight: 500;
+      color: #5c1a12;
+      line-height: 1.6;
+      margin-bottom: 26px;
+      flex-grow: 1;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Todos os botões "Pedir no ..." iguais: fundo marrom #5c1a12, texto creme #faf6ea, hover marrom escuro #3e100b com detalhe dourado #d4a94f */
+    .canal-btn-standard {
+      background-color: var(--marrom-escuro);
+      color: var(--creme);
+      padding: 15px 24px;
+      border-radius: var(--radius-pill);
+      font-size: 1rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border: 1.5px solid transparent;
+      box-shadow: 0 6px 18px rgba(62, 16, 11, 0.18);
+      position: relative;
+      z-index: 2;
+      will-change: transform;
+      transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+    }
+
+    .canal-btn-standard .arrow-slide {
+      color: var(--creme);
+      transition: transform 0.3s var(--ease-padaria), color 0.3s ease;
+    }
+
+    .canal-btn-standard:hover,
+    .canal-card-padrao:hover .canal-btn-standard {
+      background-color: var(--marrom-profundo);
+      color: var(--creme);
+      border-color: var(--dourado);
+      box-shadow: 0 10px 24px rgba(62, 16, 11, 0.28), 0 0 16px rgba(212, 169, 79, 0.3);
+    }
+
+    .canal-btn-standard:hover .arrow-slide,
+    .canal-card-padrao:hover .canal-btn-standard .arrow-slide {
+      transform: translateX(6px);
+      color: var(--dourado);
+    }
+
+    /* =====================================================================
+       FAIXA DE DESTAQUES (ENTRADA COM CLIP-PATH & ZOOM LENTO NO HOVER)
+       ===================================================================== */
+    .destaques-section {
+      padding: 96px 0;
+      background-color: var(--marrom-noite);
+      color: var(--creme);
+      position: relative;
+    }
+
+    .destaques-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 50px;
+    }
+
+    .destaque-card {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      height: 380px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(212, 169, 79, 0.2);
+      cursor: pointer;
+      will-change: clip-path, transform, opacity;
+    }
+
+    .destaque-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      will-change: transform;
+      transition: transform 1.2s var(--ease-padaria);
+    }
+
+    .destaque-card:hover .destaque-img {
+      transform: scale(1.12);
+    }
+
+    .destaque-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(38, 9, 6, 0.92) 85%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 24px;
+      transition: background 0.4s ease;
+    }
+
+    .destaque-card:hover .destaque-overlay {
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(38, 9, 6, 0.98) 75%);
+    }
+
+    .destaque-tag {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--dourado);
+      margin-bottom: 6px;
+    }
+
+    .destaque-titulo {
+      font-family: var(--fonte-titulo);
+      font-size: 1.35rem;
+      color: #FFFFFF;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+
+    .destaque-desc {
+      font-size: 0.88rem;
+      color: var(--areia-suave);
+      line-height: 1.5;
+      opacity: 0.9;
+    }
+
+    /* =====================================================================
+       SEÇÃO: TRADIÇÃO (PARALLAX DESACOPLADO + CONTADORES)
+       ===================================================================== */
+    .tradicao-section {
+      position: relative;
+      padding: 110px 0;
+      color: var(--creme);
+      overflow: hidden;
+    }
+
+    .tradicao-bg-layer {
+      position: absolute;
+      top: -20%;
+      left: 0;
+      width: 100%;
+      height: 140%;
+      background: url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1920&q=80') center center / cover no-repeat;
+      will-change: transform;
+      z-index: 0;
+    }
+
+    .tradicao-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(38, 9, 6, 0.94) 0%, rgba(62, 16, 11, 0.9) 100%);
+      z-index: 1;
+    }
+
+    .tradicao-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 60px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .tradicao-kicker {
+      color: var(--dourado);
+      font-size: 0.85rem;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .tradicao-title {
+      font-family: var(--fonte-titulo);
+      font-size: clamp(2.3rem, 4.5vw, 3.4rem);
+      line-height: 1.2;
+      color: #FFFFFF;
+      margin-bottom: 24px;
+    }
+
+    .tradicao-text p {
+      font-size: 1.1rem;
+      color: var(--areia-suave);
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .tradicao-quote {
+      font-family: var(--fonte-titulo);
+      font-style: italic;
+      font-size: 1.25rem;
+      color: var(--dourado-claro);
+      border-left: 3px solid var(--dourado);
+      padding-left: 20px;
+      margin: 30px 0 0;
+      line-height: 1.6;
+    }
+
+    .counters-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .counter-box {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--borda-dourada);
+      border-radius: var(--radius-md);
+      padding: 28px 30px;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      transition: var(--transicao);
+    }
+
+    .counter-box:hover {
+      background: rgba(255, 255, 255, 0.08);
+      transform: translateX(8px);
+      border-color: var(--dourado-claro);
+    }
+
+    .counter-number {
+      font-family: var(--fonte-titulo);
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--dourado);
+      line-height: 1;
+      min-width: 130px;
+    }
+
+    .counter-label h4 {
+      font-size: 1.15rem;
+      color: #FFFFFF;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .counter-label p {
+      font-size: 0.9rem;
+      color: var(--areia-suave);
+      line-height: 1.4;
+    }
+
+    /* =====================================================================
+       LOCALIZAÇÃO (SEÇÃO EM AREIA COM TEXTURA KRAFT, CARD ESCURO NOBRE & GOOGLE MAPS)
+       ===================================================================== */
+    .local-section {
+      padding: 96px 0;
+      background-color: var(--areia-suave);
+      position: relative;
+    }
+
+    /* Textura sutil de papel kraft na seção de localização */
+    .local-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.04;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseLocal'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseLocal)'/%3E%3C/svg%3E");
+      z-index: 1;
+    }
+
+    .local-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: stretch;
+      margin-top: 48px;
+    }
+
+    .card-local-dark {
+      background: var(--marrom-profundo);
+      color: var(--creme);
+      border-radius: var(--radius-lg);
+      padding: 44px 36px;
+      border: 1px solid var(--borda-dourada);
+      box-shadow: 0 16px 40px rgba(62, 16, 11, 0.35);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .local-title-box {
+      font-family: var(--fonte-titulo);
+      font-size: 1.85rem;
+      color: var(--dourado-claro);
+      margin-bottom: 30px;
+      font-weight: 700;
+    }
+
+    .local-items-list {
+      display: flex;
+      flex-direction: column;
+      gap: 26px;
+      margin-bottom: 36px;
+    }
+
+    .local-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+    }
+
+    .local-icon-badge {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background-color: var(--creme);
+      border: 2px solid var(--dourado);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25), 0 0 10px rgba(212, 169, 79, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.55rem;
+      line-height: 1;
+      flex-shrink: 0;
+      filter: saturate(1.25) contrast(1.1);
+    }
+
+    .local-item-info h4 {
+      font-family: var(--fonte-titulo);
+      font-size: 1.2rem;
+      color: #FFFFFF;
+      margin-bottom: 4px;
+    }
+
+    .local-item-info p {
+      font-size: 0.95rem;
+      color: var(--areia-suave);
+      line-height: 1.5;
+    }
+
+    .badge-todo-dark {
+      display: inline-block;
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: var(--dourado-claro);
+      background: rgba(212, 169, 79, 0.2);
+      border: 1px solid var(--dourado);
+      padding: 3px 8px;
+      border-radius: 4px;
+      margin-top: 4px;
+    }
+
+    .btn-como-chegar {
+      background: linear-gradient(135deg, var(--dourado-claro) 0%, var(--dourado) 100%);
+      color: var(--marrom-noite);
+      padding: 16px 28px;
+      border-radius: var(--radius-pill);
+      font-weight: 800;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      box-shadow: 0 8px 24px rgba(212, 169, 79, 0.35);
+      will-change: transform;
+      transition: filter 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .btn-como-chegar:hover {
+      filter: brightness(1.08);
+      box-shadow: 0 12px 30px rgba(212, 169, 79, 0.5);
+    }
+
+    .btn-como-chegar:hover .arrow-slide {
+      transform: translateX(6px);
+    }
+
+    .mapa-container {
+      background-color: #FFFFFF;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--sombra-card);
+      border: 1px solid var(--borda-clara);
+      min-height: 440px;
+    }
+
+    .mapa-iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 440px;
+      border: 0;
+      display: block;
+    }
+
+    /* =====================================================================
+       FOOTER
+       ===================================================================== */
+    .site-footer {
+      background-color: var(--marrom-noite);
+      color: var(--creme);
+      padding: 60px 0 35px;
+      border-top: 2px solid var(--dourado);
+    }
+
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 24px;
+    }
+
+    .footer-logo-title {
+      font-family: var(--fonte-titulo);
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--dourado-claro);
+      letter-spacing: 1px;
+    }
+
+    .footer-paragraph {
+      font-size: 0.95rem;
+      color: var(--areia-suave);
+      max-width: 580px;
+      line-height: 1.7;
+    }
+
+    .footer-nav {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .footer-nav a {
+      color: var(--creme);
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .footer-nav a:hover {
+      color: var(--dourado);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(212, 169, 79, 0.2);
+      padding-top: 25px;
+      width: 100%;
+      font-size: 0.82rem;
+      color: var(--texto-muted);
+    }
+
+    /* =====================================================================
+       BARRA FIXA MOBILE & WHATSAPP FLUTUANTE
+       ===================================================================== */
+    .mobile-bottom-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(38, 9, 6, 0.96);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding: 12px 20px;
+      border-top: 1px solid var(--dourado);
+      z-index: 900;
+      display: none;
+      transform: translateY(100%);
+      transition: transform 0.35s var(--ease-padaria);
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .mobile-bottom-bar.show {
+      transform: translateY(0);
+    }
+
+    .mobile-btn-pedir {
+      background: linear-gradient(135deg, var(--dourado-claro) 0%, var(--dourado) 100%);
+      color: var(--marrom-noite);
+      width: 100%;
+      padding: 14px 20px;
+      border-radius: var(--radius-pill);
+      font-weight: 800;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .whatsapp-floating {
+      position: fixed;
+      bottom: 30px;
+      right: 28px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: var(--marrom-escuro);
+      color: var(--dourado-claro);
+      border: 2px solid var(--dourado);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 24px rgba(62, 16, 11, 0.4), 0 0 16px rgba(212, 169, 79, 0.25);
+      z-index: 800;
+      transition: var(--transicao);
+    }
+
+    .whatsapp-floating:hover {
+      transform: scale(1.1) translateY(-2px);
+      background-color: var(--marrom-profundo);
+      color: var(--creme);
+      border-color: var(--dourado-claro);
+      box-shadow: 0 12px 30px rgba(62, 16, 11, 0.6), 0 0 22px rgba(212, 169, 79, 0.45);
+    }
+
+    .toast-msg {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: var(--marrom-noite);
+      color: #FFFFFF;
+      border: 1px solid var(--dourado);
+      padding: 16px 28px;
+      border-radius: var(--radius-pill);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+      font-size: 0.95rem;
+      font-weight: 600;
+      z-index: 2000;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.35s var(--ease-padaria);
+    }
+
+    .toast-msg.active {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* =====================================================================
+       CLASSES DE ANIMAÇÃO AO ROLAR NOS DOIS SENTIDOS (BIDIRECIONAIS)
+       ===================================================================== */
+    .anim-fade-up,
+    .anim-fade-left,
+    .anim-fade-right,
+    .anim-zoom-in,
+    .anim-clip-mask {
+      opacity: 0;
+      transition: opacity 0.65s var(--ease-padaria), transform 0.65s var(--ease-padaria), clip-path 0.65s var(--ease-padaria);
+      transition-delay: 0s;
+      will-change: opacity, transform;
+    }
+
+    /* Estado padrão / vindo de baixo (rolagem para baixo) */
+    .anim-fade-up,
+    .anim-fade-up.from-bottom {
+      transform: translateY(45px);
+    }
+    .anim-fade-left,
+    .anim-fade-left.from-bottom {
+      transform: translateX(-50px) translateY(15px);
+    }
+    .anim-fade-right,
+    .anim-fade-right.from-bottom {
+      transform: translateX(50px) translateY(15px);
+    }
+    .anim-zoom-in,
+    .anim-zoom-in.from-bottom {
+      transform: scale(0.9) translateY(20px);
+    }
+    .anim-clip-mask,
+    .anim-clip-mask.from-bottom {
+      clip-path: inset(0 0 35% 0);
+      transform: translateY(35px);
+    }
+
+    /* Estado vindo de cima (rolagem para cima) */
+    .anim-fade-up.from-top {
+      transform: translateY(-45px);
+    }
+    .anim-fade-left.from-top {
+      transform: translateX(-50px) translateY(-15px);
+    }
+    .anim-fade-right.from-top {
+      transform: translateX(50px) translateY(-15px);
+    }
+    .anim-zoom-in.from-top {
+      transform: scale(0.9) translateY(-20px);
+    }
+    .anim-clip-mask.from-top {
+      clip-path: inset(35% 0 0 0);
+      transform: translateY(-35px);
+    }
+
+    /* Elemento Visível na Tela (adicionado via IntersectionObserver) */
+    .is-visible,
+    .is-in-view {
+      opacity: 1 !important;
+      transform: translate(0, 0) scale(1) !important;
+      clip-path: inset(0 0 0 0) !important;
+    }
+
+    /* Delay escalonado somente na entrada para evitar travamento na saída */
+    .is-visible[data-delay],
+    .is-in-view[data-delay] {
+      transition-delay: var(--anim-delay, 0s);
+    }
+
+    /* =====================================================================
+       PREFERS-REDUCED-MOTION (ACESSIBILIDADE ESSENCIAL)
+       ===================================================================== */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .anim-fade-up, .anim-fade-left, .anim-fade-right, .anim-zoom-in, .anim-clip-mask {
+        opacity: 1 !important;
+        transform: none !important;
+        clip-path: none !important;
+      }
+      .logo-badge-container {
+        animation: none !important;
+      }
+      .hero-bg-layer, .tradicao-bg-layer {
+        transform: none !important;
+      }
+    }
+
+    /* =====================================================================
+       RESPONSIVIDADE (375px, 768px, 1280px)
+       ===================================================================== */
+    /* =====================================================================
+       RESPONSIVIDADE REFINADA PARA MOBILE (IPHONE SE 375px, 768px, 1280px)
+       ===================================================================== */
+    @media (max-width: 1024px) {
+      .destaques-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .tradicao-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .local-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      :root {
+        --header-h: 62px;
+      }
+
+      .container {
+        padding: 0 16px;
+      }
+
+      .header-nav {
+        display: none;
+      }
+
+      .brand-name {
+        font-size: 1.45rem;
+      }
+
+      .brand-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 1.25rem;
+      }
+
+      /* Hero Mobile Perfeitamente Proporcional ao iPhone */
+      .hero {
+        min-height: 100svh;
+        padding: 74px 16px 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .hero-content {
+        max-width: 100%;
+      }
+
+      .hero-brasao-circle {
+        width: 130px;
+        height: 130px;
+        padding: 12px;
+        margin-bottom: 14px;
+      }
+
+      .hero-badge {
+        font-size: 0.7rem;
+        letter-spacing: 1.6px;
+        padding: 5px 12px;
+        margin-bottom: 12px;
+      }
+
+      .hero-title {
+        font-size: clamp(1.65rem, 6.8vw, 2.2rem);
+        line-height: 1.2;
+        margin-bottom: 10px;
+      }
+
+      .ornament-divider {
+        max-width: 160px;
+        margin: 0 auto 12px;
+      }
+
+      .hero-subtitle {
+        font-size: 0.9rem;
+        line-height: 1.45;
+        margin-bottom: 20px;
+        max-width: 330px;
+      }
+
+      .btn-hero-ouro {
+        width: 100%;
+        max-width: 290px;
+        padding: 13px 20px;
+        font-size: 0.95rem;
+        justify-content: center;
+      }
+
+      .scroll-indicator {
+        position: relative;
+        bottom: auto;
+        margin-top: 14px;
+        gap: 4px;
+        font-size: 0.62rem;
+      }
+
+      .scroll-mouse {
+        width: 16px;
+        height: 24px;
+      }
+
+      .scroll-wheel {
+        width: 3px;
+        height: 5px;
+      }
+
+      /* Seções com Altura e Padding Enxutos (Elimina rolagem vazia de 9000px) */
+      .destaques-section,
+      .canais-section,
+      .tradicao-section,
+      .local-section {
+        padding: 44px 0;
+      }
+
+      .section-header-center {
+        margin-bottom: 22px;
+      }
+
+      .section-kicker {
+        font-size: 0.72rem;
+        letter-spacing: 1.8px;
+        margin-bottom: 4px;
+      }
+
+      .section-title-large {
+        font-size: 1.65rem;
+        margin-bottom: 8px;
+      }
+
+      .section-desc-lead {
+        font-size: 0.9rem;
+        line-height: 1.5;
+      }
+
+      /* Destaques: Carrossel Horizontal Touch Snap no Mobile */
+      .destaques-grid {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 14px;
+        padding-bottom: 12px;
+        margin-top: 20px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+
+      .destaques-grid::-webkit-scrollbar {
+        display: none;
+      }
+
+      .destaque-card {
+        flex: 0 0 240px;
+        height: 260px;
+        scroll-snap-align: start;
+        border-radius: var(--radius-sm);
+      }
+
+      .destaque-overlay {
+        padding: 14px;
+      }
+
+      .destaque-titulo {
+        font-size: 1.1rem;
+      }
+
+      .destaque-desc {
+        font-size: 0.78rem;
+        line-height: 1.35;
+      }
+
+      /* Canais Grid Compacto e Confortável */
+      .canais-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .canal-card-epadoca {
+        grid-column: span 1;
+        flex-direction: column;
+        text-align: center;
+        padding: 20px 16px;
+        gap: 16px;
+      }
+
+      .epadoca-main-info {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+      }
+
+      .canal-avatar-epadoca,
+      .logo-badge-container {
+        width: 64px;
+        height: 64px;
+        border-radius: 16px;
+        padding: 8px;
+      }
+
+      .canal-titulo-epadoca {
+        font-size: 1.4rem;
+      }
+
+      .canal-desc-epadoca {
+        font-size: 0.86rem;
+      }
+
+      .btn-pedir-epadoca {
+        width: 100%;
+        padding: 12px 18px;
+        font-size: 0.92rem;
+        justify-content: center;
+      }
+
+      .canal-card-padrao {
+        grid-column: span 1;
+        padding: 18px 16px;
+      }
+
+      .canal-card-padrao.is-last-odd,
+      .canal-card-padrao:last-child:nth-child(even) {
+        grid-column: span 1;
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+      }
+
+      .canal-top-header {
+        gap: 14px;
+        margin-bottom: 8px;
+      }
+
+      .canal-title-standard {
+        font-size: 1.4rem;
+        font-weight: 800;
+        color: #3e100b;
+      }
+
+      .canal-desc-standard {
+        font-size: 0.88rem;
+        font-weight: 500;
+        color: #5c1a12;
+        margin-bottom: 14px;
+        line-height: 1.45;
+      }
+
+      .canal-btn-standard {
+        padding: 12px 18px;
+        font-size: 0.9rem;
+      }
+
+      /* Seção Tradição: Contadores em Linha (Grid 3 colunas) */
+      .tradicao-text p {
+        font-size: 0.92rem;
+        line-height: 1.6;
+        margin-bottom: 12px;
+      }
+
+      .tradicao-quote {
+        font-size: 1rem;
+        padding-left: 12px;
+        margin-top: 16px;
+      }
+
+      .counters-wrapper {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+        margin-top: 10px;
+      }
+
+      .counter-box {
+        flex-direction: column;
+        padding: 12px 6px;
+        text-align: center;
+        gap: 4px;
+        border-radius: var(--radius-sm);
+      }
+
+      .counter-number {
+        font-size: 1.55rem;
+        min-width: auto;
+      }
+
+      .counter-label h4 {
+        font-size: 0.72rem;
+        margin-bottom: 0;
+      }
+
+      .counter-label p {
+        display: none;
+      }
+
+      /* Localização */
+      .local-grid {
+        gap: 18px;
+        margin-top: 20px;
+      }
+
+      .card-local-dark {
+        padding: 22px 16px;
+      }
+
+      .local-title-box {
+        font-size: 1.35rem;
+        margin-bottom: 16px;
+      }
+
+      .local-items-list {
+        gap: 14px;
+        margin-bottom: 18px;
+      }
+
+      .local-icon-badge {
+        width: 48px;
+        height: 48px;
+        font-size: 1.35rem;
+      }
+
+      .local-item-info h4 {
+        font-size: 1rem;
+      }
+
+      .local-item-info p {
+        font-size: 0.84rem;
+      }
+
+      .btn-como-chegar {
+        padding: 12px 18px;
+        font-size: 0.9rem;
+      }
+
+      .mapa-container {
+        min-height: 240px;
+      }
+
+      .mapa-iframe {
+        min-height: 240px;
+      }
+
+      /* Footer */
+      .site-footer {
+        padding: 36px 0 85px; /* espaço para barra mobile */
+      }
+
+      .footer-logo-title {
+        font-size: 1.6rem;
+      }
+
+      .footer-paragraph {
+        font-size: 0.82rem;
+      }
+
+      .footer-nav {
+        gap: 12px;
+      }
+
+      .footer-nav a {
+        font-size: 0.8rem;
+      }
+
+      /* Barra Mobile e WhatsApp */
+      .mobile-bottom-bar {
+        display: block;
+        padding: 10px 14px;
+      }
+
+      .mobile-btn-pedir {
+        padding: 12px 18px;
+        font-size: 0.92rem;
+      }
+
+      .whatsapp-floating {
+        bottom: 64px;
+        right: 14px;
+        width: 46px;
+        height: 46px;
+      }
+
+      .whatsapp-floating svg {
+        width: 25px;
+        height: 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Barra de Progresso Fina e Dourada no Topo -->
+  <div class="scroll-progress-bar" id="scroll-progress-bar" aria-hidden="true"></div>
+
+  <!-- =====================================================================
+       1. HEADER TRANSPARENTE COM TRANSIÇÃO AO ROLAR
+       ===================================================================== -->
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a href="#" class="brand-logo" aria-label="Padaria Lisboa - Início">
+        <img src="assets/logos/padaria-lisboa-logo.png" alt="Padaria Lisboa 1913" class="brand-logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <div class="brand-icon" style="display:none;" aria-hidden="true">L</div>
+        <div class="brand-text">
+          <span class="brand-name">Lisboa</span>
+          <span class="brand-sub">Padaria • 1913</span>
+        </div>
+      </a>
+
+      <nav class="header-nav" aria-label="Navegação Principal">
+        <a href="#destaques" class="nav-link">Destaques</a>
+        <a href="#canais" class="nav-link">Onde Pedir</a>
+        <a href="#tradicao" class="nav-link">Tradição</a>
+        <a href="#localizacao" class="nav-link">Localização</a>
+        <a href="#canais" class="btn-header-cta magnetic-btn">
+          <span>Pedir Agora</span>
+          <svg class="arrow-slide" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- =====================================================================
+         2. HERO (ALTURA 100svh, PARALLAX NA IMAGEM E NOS TEXTOS)
+         ===================================================================== -->
+    <section class="hero" id="inicio">
+      <!-- Camada de Fundo Parallax -->
+      <div class="hero-bg-layer" id="hero-bg" aria-hidden="true"></div>
+      <div class="hero-overlay" aria-hidden="true"></div>
+
+      <!-- Elementos decorativos com parallax -->
+      <div class="floating-decor-layer" aria-hidden="true">
+        <svg class="decor-item decor-wheat-1" data-speed="0.25" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2c-.6 2.3-1.8 4.2-3.5 5.5 1.7 1.3 2.9 3.2 3.5 5.5.6-2.3 1.8-4.2 3.5-5.5-1.7-1.3-2.9-3.2-3.5-5.5z"/>
+        </svg>
+        <svg class="decor-item decor-coffee-1" data-speed="-0.3" viewBox="0 0 24 24" fill="currentColor">
+          <circle cx="12" cy="12" r="5"/>
+        </svg>
+      </div>
+
+      <div class="hero-content" id="hero-content">
+        <!-- Brasão Oficial Padaria Lisboa 1913 -->
+        <div class="hero-brasao-circle anim-zoom-in">
+          <img src="assets/logos/padaria-lisboa-logo.svg" alt="Padaria Lisboa - Desde 1913 - O Melhor Pão" class="hero-brasao-img" />
+        </div>
+
+        <!-- Selo Desde 1913 em Dourado -->
+        <div class="hero-badge">
+          <span>★</span> Tradição Centenária • Desde 1913
+        </div>
+
+        <!-- Título em Lora -->
+        <h1 class="hero-title">
+          A mesma qualidade da padaria, <em>no app que você preferir</em>
+        </h1>
+
+        <!-- Divisor Ornamental Fino com Losango Central -->
+        <div class="ornament-divider" aria-hidden="true">
+          <div class="ornament-line"></div>
+          <div class="ornament-dot"></div>
+          <div class="ornament-line"></div>
+        </div>
+
+        <p class="hero-subtitle">
+          Mais de um século de forno aquecido na Praça Silvio Romero. Do pão quentinho crocante aos doces clássicos portugueses, selecione seu canal favorito e receba em minutos na sua mesa.
+        </p>
+
+        <!-- Botão Principal Dourado com Efeito Magnético e Seta Animada -->
+        <a href="#canais" class="btn-hero-ouro magnetic-btn">
+          <span>Escolher Onde Pedir</span>
+          <svg class="arrow-slide" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Indicador de Rolagem Animado -->
+      <a href="#destaques" class="scroll-indicator" aria-label="Rolar para os destaques">
+        <span>Role para pedir</span>
+        <div class="scroll-mouse" aria-hidden="true">
+          <div class="scroll-wheel"></div>
+        </div>
+      </a>
+    </section>
+
+    <!-- =====================================================================
+         3. FAIXA EM MOVIMENTO (MARQUEE INTERATIVO AO SCROLL)
+         ===================================================================== -->
+    <div class="marquee-strip" id="marquee-strip" aria-hidden="true">
+      <div class="marquee-track" id="marquee-track">
+        <div class="marquee-item">Pães artesanais frescos <span class="bullet">✦</span></div>
+        <div class="marquee-item">Confeitaria tradicional <span class="bullet">✦</span></div>
+        <div class="marquee-item">Café cremoso na chapa <span class="bullet">✦</span></div>
+        <div class="marquee-item">Pizzas crocantes de forno <span class="bullet">✦</span></div>
+        <div class="marquee-item">Encomendas para eventos <span class="bullet">✦</span></div>
+        <div class="marquee-item">Cestas de café da manhã <span class="bullet">✦</span></div>
+        <div class="marquee-item">Fornadas quentinhas a toda hora <span class="bullet">✦</span></div>
+        <div class="marquee-item">Tradição desde 1913 no Tatuapé <span class="bullet">✦</span></div>
+        <!-- Duplicata para loop contínuo -->
+        <div class="marquee-item">Pães artesanais frescos <span class="bullet">✦</span></div>
+        <div class="marquee-item">Confeitaria tradicional <span class="bullet">✦</span></div>
+        <div class="marquee-item">Café cremoso na chapa <span class="bullet">✦</span></div>
+        <div class="marquee-item">Pizzas crocantes de forno <span class="bullet">✦</span></div>
+        <div class="marquee-item">Encomendas para eventos <span class="bullet">✦</span></div>
+        <div class="marquee-item">Cestas de café da manhã <span class="bullet">✦</span></div>
+        <div class="marquee-item">Fornadas quentinhas a toda hora <span class="bullet">✦</span></div>
+        <div class="marquee-item">Tradição desde 1913 no Tatuapé <span class="bullet">✦</span></div>
+      </div>
+    </div>
+
+    <!-- =====================================================================
+         4. FAIXA DE DESTAQUES (CLIP-PATH MASK & ZOOM LENTO)
+         ===================================================================== -->
+    <section class="destaques-section" id="destaques">
+      <div class="container">
+        <div class="section-header-center anim-fade-up">
+          <span class="section-kicker">Nossas Fornadas & Sabores</span>
+          <h2 class="section-title-large" style="color: #FFFFFF;">O aroma inconfundível que conquista gerações</h2>
+          <p class="section-desc-lead" style="color: var(--areia-suave);">
+            Receitas com técnica artesanal, fermentação no ponto e os melhores ingredientes de São Paulo.
+          </p>
+        </div>
+
+        <div class="destaques-grid">
+          <!-- Item 1: Pão na Chapa & Café -->
+          <article class="destaque-card anim-clip-mask">
+            <img class="destaque-img" src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80" alt="Café cremoso especial com pão crocante da padaria" loading="lazy">
+            <div class="destaque-overlay">
+              <span class="destaque-tag">Café da Manhã</span>
+              <h3 class="destaque-titulo">Pão na Chapa & Café Cremoso</h3>
+              <p class="destaque-desc">A clássica baguete tostada com manteiga de verdade e café coado ou expresso no capricho.</p>
+            </div>
+          </article>
+
+          <!-- Item 2: Pizzas Artesanais -->
+          <article class="destaque-card anim-clip-mask">
+            <img class="destaque-img" src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=800&q=80" alt="Pizza artesanal assada com massa crocante e queijo derretido" loading="lazy">
+            <div class="destaque-overlay">
+              <span class="destaque-tag">Noites de Forno</span>
+              <h3 class="destaque-titulo">Pizzas Artesanais de Padaria</h3>
+              <p class="destaque-desc">Massa de fermentação lenta, molho caseiro de tomates frescos e recheios generosos.</p>
+            </div>
+          </article>
+
+          <!-- Item 3: Confeitaria & Bolos -->
+          <article class="destaque-card anim-clip-mask">
+            <img class="destaque-img" src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80" alt="Bolo e doces finos da confeitaria artesanal" loading="lazy">
+            <div class="destaque-overlay">
+              <span class="destaque-tag">Doceria Fina</span>
+              <h3 class="destaque-titulo">Bolos & Doces Portugueses</h3>
+              <p class="destaque-desc">Pasteis de nata dourados, carolinas, tortas confeitadas e bolos fofinhos para adoçar o dia.</p>
+            </div>
+          </article>
+
+          <!-- Item 4: Sanduíches & Lanches -->
+          <article class="destaque-card anim-clip-mask">
+            <img class="destaque-img" src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=800&q=80" alt="Sanduíche artesanal na baguete crocante recheado" loading="lazy">
+            <div class="destaque-overlay">
+              <span class="destaque-tag">Lanches Especiais</span>
+              <h3 class="destaque-titulo">Sanduíches no Pão Francês</h3>
+              <p class="destaque-desc">O clássico bauru, queijo quente no ponto e combinações especiais montadas na hora.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         5. CANAIS DE PEDIDO (A ESTRELA DA PÁGINA COM LOGOS & TILT 3D)
+         ===================================================================== -->
+    <section class="canais-section" id="canais">
+      <div class="container">
+        <div class="section-header-center anim-fade-up">
+          <span class="section-kicker">Peça do seu Jeito</span>
+          <h2 class="section-title-large">Onde você quer pedir?</h2>
+          <p class="section-desc-lead">
+            Clique no seu aplicativo preferido para abrir o cardápio e receber tudo quentinho e fresco sem perder tempo.
+          </p>
+        </div>
+
+        <div class="canais-grid" id="canais-grid-dinamico">
+          <!-- Renderizado dinamicamente via JS a partir de CANAIS_PEDIDO -->
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         6. SEÇÃO: TRADIÇÃO (PARALLAX DESACOPLADO + CONTADORES)
+         ===================================================================== -->
+    <section class="tradicao-section" id="tradicao">
+      <div class="tradicao-bg-layer" id="tradicao-bg" aria-hidden="true"></div>
+      <div class="tradicao-overlay" aria-hidden="true"></div>
+
+      <div class="container tradicao-container">
+        <div class="tradicao-grid">
+          
+          <div class="tradicao-text anim-fade-left">
+            <span class="tradicao-kicker">Nossa Alma Centenária</span>
+            <h2 class="tradicao-title">Mais de um século de sabor e respeito à nossa história</h2>
+            
+            <p>
+              Em <strong>1913</strong>, no coração vibrante do Tatuapé, nascia a <strong>Padaria Lisboa</strong> diante da tradicional Praça Silvio Romero. Desde o primeiro forninho a lenha do início do século XX até a tecnologia de pedidos de hoje, mantivemos intacta a nossa maior riqueza: a receita de família, a fermentação respeitada e o abraço caloroso em cada cliente.
+            </p>
+
+            <p>
+              Hoje conduzida com orgulho pela <strong>4ª geração da mesma família</strong>, a Padaria Lisboa é ponto de encontro, memória afetiva de avós, pais e filhos, e referência do pão de qualidade que só quem ama o que faz consegue assar.
+            </p>
+
+            <blockquote class="tradicao-quote">
+              "Não vendemos apenas pães e cafés: servimos a tradição e o conforto do lar de gerações de moradores do Tatuapé."
+            </blockquote>
+          </div>
+
+          <!-- 3 Contadores Animados -->
+          <div class="counters-wrapper anim-fade-right" id="counters-section">
+            
+            <!-- Contador 1: 1913 -->
+            <div class="counter-box">
+              <div class="counter-number" data-target="1913" data-prefix="" data-suffix="">0</div>
+              <div class="counter-label">
+                <h4>Ano de Fundação</h4>
+                <p>Nascida junto com o desenvolvimento do bairro do Tatuapé.</p>
+              </div>
+            </div>
+
+            <!-- Contador 2: 4ª Geração -->
+            <div class="counter-box">
+              <div class="counter-number" data-target="4" data-prefix="" data-suffix="ª">0</div>
+              <div class="counter-label">
+                <h4>Geração de Família</h4>
+                <p>O mesmo carinho e segredos de receitas mantidos de pai para filho.</p>
+              </div>
+            </div>
+
+            <!-- Contador 3: 100+ Anos -->
+            <div class="counter-box">
+              <div class="counter-number" data-target="100" data-prefix="" data-suffix="+">0</div>
+              <div class="counter-label">
+                <h4>Anos de História</h4>
+                <p>Mais de um século servindo São Paulo na Praça Silvio Romero.</p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         7. LOCALIZAÇÃO (CARD ESCURO SOFISTICADO + GOOGLE MAPS)
+         ===================================================================== -->
+    <section class="local-section" id="localizacao">
+      <div class="container">
+        <div class="section-header-center anim-fade-up">
+          <span class="section-kicker">Ponto de Encontro</span>
+          <h2 class="section-title-large">Venha sentir o aroma de perto</h2>
+          <p class="section-desc-lead">
+            Estamos no endereço mais charmoso do Tatuapé, em frente à Praça Silvio Romero.
+          </p>
+        </div>
+
+        <div class="local-grid">
+          <!-- Card Escuro Nobre com Informações -->
+          <div class="card-local-dark anim-fade-left">
+            <div>
+              <h3 class="local-title-box">Informações & Balcão</h3>
+              
+              <div class="local-items-list">
+                <!-- Endereço -->
+                <div class="local-item">
+                  <div class="local-icon-badge" aria-hidden="true">📍</div>
+                  <div class="local-item-info">
+                    <h4>Endereço</h4>
+                    <p>
+                      Praça Silvio Romero, Tatuapé<br>
+                      São Paulo - SP, CEP 03323-000
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Horário de Funcionamento -->
+                <div class="local-item">
+                  <div class="local-icon-badge" aria-hidden="true">⏰</div>
+                  <div class="local-item-info">
+                    <h4>Horário de Funcionamento</h4>
+                    <p>Todos os dias, das 6h às 22h</p>
+                  </div>
+                </div>
+
+                <!-- Contato & Encomendas -->
+                <div class="local-item">
+                  <div class="local-icon-badge" aria-hidden="true">📞</div>
+                  <div class="local-item-info">
+                    <h4>Telefone & Encomendas</h4>
+                    <p>
+                      <strong>WhatsApp:</strong> <a href="https://wa.me/5511966019392?text=Ol%C3%A1%2C%20gostaria%20de%20fazer%20um%20pedido%20na%20Padaria%20Lisboa" target="_blank" rel="noopener noreferrer" style="color: var(--dourado-claro); text-decoration: underline;">(11) 96601-9392</a><br>
+                      <strong>Telefones Balcão:</strong> <a href="tel:1122959444" style="color: var(--dourado-claro); text-decoration: underline;">(11) 2295-9444</a> / <a href="tel:1122931378" style="color: var(--dourado-claro); text-decoration: underline;">(11) 2293-1378</a><br>
+                      Atendimento para encomendas de bolos, pães e cestas.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Botão Como Chegar com Efeito Magnético -->
+            <a 
+              href="https://www.google.com/maps/search/?api=1&query=Padaria+Lisboa+Pra%C3%A7a+Silvio+Romero+Tatuap%C3%A9+S%C3%A3o+Paulo" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="btn-como-chegar magnetic-btn"
+            >
+              <span>Abrir no Google Maps</span>
+              <svg class="arrow-slide" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon>
+                <line x1="9" y1="3" x2="9" y2="18"></line>
+                <line x1="15" y1="6" x2="15" y2="21"></line>
+              </svg>
+            </a>
+          </div>
+
+          <!-- Mapa incorporado com cantos arredondados -->
+          <div class="mapa-container anim-fade-right">
+            <iframe 
+              class="mapa-iframe"
+              src="https://maps.google.com/maps?q=Padaria+Lisboa+Pra%C3%A7a+Silvio+Romero+Tatuap%C3%A9+S%C3%A3o+Paulo&t=&z=16&ie=UTF8&iwloc=&output=embed"
+              title="Localização da Padaria Lisboa na Praça Silvio Romero, Tatuapé"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =====================================================================
+       8. FOOTER ELEGANTE
+       ===================================================================== -->
+  <footer class="site-footer">
+    <div class="container footer-content anim-fade-up">
+      <img src="assets/logos/padaria-lisboa-logo.svg" alt="Padaria Lisboa 1913" class="footer-brasao-img" />
+      <div class="footer-logo-title">Padaria Lisboa 1913</div>
+      <p class="footer-paragraph">
+        A tradição viva do Tatuapé. Praça Silvio Romero, São Paulo - SP.<br>
+        Mais de 100 anos honrando a essência da panificação artesanal e o calor de família.
+      </p>
+
+      <ul class="footer-nav">
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#destaques">Destaques</a></li>
+        <li><a href="#canais">Onde Pedir</a></li>
+        <li><a href="#tradicao">Nossa História</a></li>
+        <li><a href="#localizacao">Como Chegar</a></li>
+      </ul>
+
+      <div class="footer-bottom">
+        &copy; <span id="ano-atual"></span> Padaria Lisboa. Todos os direitos reservados.
+      </div>
+    </div>
+  </footer>
+
+  <!-- =====================================================================
+       BARRA FIXA MOBILE & BOTÃO FLUTUANTE DE WHATSAPP
+       ===================================================================== -->
+  <div class="mobile-bottom-bar" id="mobile-bar">
+    <a href="#canais" class="mobile-btn-pedir">
+      <span>Pedir Agora Online</span>
+      <svg class="arrow-slide" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M5 12h14M12 5l7 7-7 7"/>
+      </svg>
+    </a>
+  </div>
+
+  <a href="https://wa.me/5511966019392?text=Ol%C3%A1%2C%20gostaria%20de%20fazer%20um%20pedido%20na%20Padaria%20Lisboa" target="_blank" rel="noopener noreferrer" class="whatsapp-floating" id="btn-whats-float" aria-label="Pedir pelo WhatsApp">
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+    </svg>
+  </a>
+
+  <!-- Toast Notificação -->
+  <div id="toast-msg" class="toast-msg" role="status" aria-live="polite">
+    Canal em configuração! Em breve o link estará disponível.
+  </div>
+
+  <!-- =====================================================================
+       JAVASCRIPT PURO + GSAP: RENDERIZAÇÃO, LOGOS, TILT 3D, PARALLAX & MAGNETISMO
+       ===================================================================== -->
+  <script>
+    /**
+     * Renderização dos Cards com Logos Oficiais (Bloco 64px) & Fallback
+     */
+    function renderizarCanais() {
+      const grid = document.getElementById("canais-grid-dinamico");
+      if (!grid) return;
+      grid.innerHTML = "";
+
+      const canaisSecundarios = CANAIS_PEDIDO.filter(c => !c.destaque);
+      const isTotalSecundariosImpar = (canaisSecundarios.length % 2 !== 0);
+
+      CANAIS_PEDIDO.forEach((canal, idx) => {
+        const isPendente = !canal.url || canal.url.trim() === "#";
+        const linkHref = isPendente ? "#" : canal.url;
+        const targetAttr = isPendente ? "" : `target="_blank" rel="noopener noreferrer"`;
+        const animDelay = (idx * 0.1).toFixed(2);
+        const floatDelay = (idx * 0.35).toFixed(2);
+        // Alterna direção de entrada (fade-left e fade-right)
+        const animClass = (idx % 2 === 0) ? "anim-fade-left" : "anim-fade-right";
+
+        const isAppIcon = true;
+        const logoWrapClass = "logo-badge-container is-app-icon";
+
+        // Template do Logo com bloco de 66px arredondado branco, nitidez cristalina e fallback
+        const logoHtml = `
+          <div class="${logoWrapClass}" style="animation-delay: ${floatDelay}s;">
+            <img 
+              src="${canal.logo}" 
+              alt="Logo oficial ${canal.nome}" 
+              class="logo-img" 
+              loading="lazy"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" 
+            />
+            <div class="logo-fallback-sigla" aria-hidden="true">${canal.sigla}</div>
+          </div>
+        `;
+
+        if (canal.destaque) {
+          // Card Especial ePadoca (Canal Oficial - Fundo Marrom Escuro, Texto Creme e Botão Dourado)
+          const epadocaCard = document.createElement("article");
+          epadocaCard.className = `canal-card-epadoca anim-fade-up tilt-card`;
+          epadocaCard.style.transitionDelay = `${animDelay}s`;
+          epadocaCard.innerHTML = `
+            <div class="card-radial-glow" aria-hidden="true"></div>
+            <div class="epadoca-main-info">
+              ${logoHtml}
+              <div class="epadoca-text-content">
+                <span class="badge-oficial-topo">★ ${canal.badge || "Canal Oficial"}</span>
+                <h3 class="canal-titulo-epadoca">${canal.nome}</h3>
+                <p class="canal-desc-epadoca">${canal.descricao}</p>
+              </div>
+            </div>
+            <a href="${linkHref}" ${targetAttr} class="btn-pedir-epadoca magnetic-btn" data-pendente="${isPendente}" data-nome="${canal.nome}">
+              <span>Pedir no ${canal.nome}</span>
+              <svg class="arrow-slide" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
+          `;
+          grid.appendChild(epadocaCard);
+        } else {
+          // Cards Secundários (Fundo Creme Claro #fffaf0, Borda Fina Areia #e3d3a8 e Botão Marrom #5c1a12)
+          // Se houver número ímpar, o último card recebe a classe is-last-odd para centralizar na linha inteira
+          const isUltimoSecundarioImpar = isTotalSecundariosImpar && (canal === canaisSecundarios[canaisSecundarios.length - 1]);
+          const lastOddClass = isUltimoSecundarioImpar ? "is-last-odd" : "";
+          const card = document.createElement("article");
+          card.className = `canal-card-padrao ${animClass} tilt-card ${lastOddClass}`.trim();
+          card.style.transitionDelay = `${animDelay}s`;
+
+          card.innerHTML = `
+            <div class="card-radial-glow" aria-hidden="true"></div>
+            <div>
+              <div class="canal-top-header">
+                ${logoHtml}
+                <h3 class="canal-title-standard">${canal.nome}</h3>
+              </div>
+              <p class="canal-desc-standard">${canal.descricao}</p>
+            </div>
+            <a href="${linkHref}" ${targetAttr} class="canal-btn-standard magnetic-btn" data-pendente="${isPendente}" data-nome="${canal.nome}">
+              <span>Pedir no ${canal.nome}</span>
+              <svg class="arrow-slide" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
+          `;
+          grid.appendChild(card);
+        }
+      });
+
+      // Feedback amigável para canais com '#'
+      grid.querySelectorAll("a[data-pendente='true']").forEach(link => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          const nome = link.getAttribute("data-nome");
+          mostrarToast(`O canal ${nome} está sendo preparado e estará disponível em breve!`);
+        });
+      });
+    }
+
+    /**
+     * Toast Notificação
+     */
+    let toastTimer;
+    function mostrarToast(mensagem) {
+      const toast = document.getElementById("toast-msg");
+      if (!toast) return;
+      toast.textContent = mensagem;
+      toast.classList.add("active");
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        toast.classList.remove("active");
+      }, 3500);
+    }
+
+    /**
+     * Barra de Progresso de Rolagem Fina e Dourada
+     */
+    function configurarBarraProgresso() {
+      const bar = document.getElementById("scroll-progress-bar");
+      if (!bar) return;
+
+      window.addEventListener("scroll", () => {
+        const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (height > 0) ? (winScroll / height) * 100 : 0;
+        bar.style.width = scrolled + "%";
+      }, { passive: true });
+    }
+
+    /**
+     * Efeitos de Cabeçalho & Barra Mobile
+     */
+    function configurarScrollEfeitos() {
+      const header = document.getElementById("site-header");
+      const mobileBar = document.getElementById("mobile-bar");
+      const hero = document.getElementById("inicio");
+
+      window.addEventListener("scroll", () => {
+        const scrollY = window.scrollY;
+
+        // Header transparente -> encolhe e vira sólido
+        if (scrollY > 50) {
+          header.classList.add("scrolled");
+        } else {
+          header.classList.remove("scrolled");
+        }
+
+        // Barra inferior mobile
+        if (hero) {
+          if (scrollY > hero.offsetHeight - 150) {
+            mobileBar.classList.add("show");
+          } else {
+            mobileBar.classList.remove("show");
+          }
+        }
+      }, { passive: true });
+    }
+
+    /**
+     * Parallax Suave & Desacoplado no Hero e Tradição
+     */
+    function configurarParallax() {
+      // Desativa em mobile para rolagem fluida nativa e sem interferir no viewport do iPhone
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || window.innerWidth < 768) return;
+
+      const heroBg = document.getElementById("hero-bg");
+      const heroContent = document.getElementById("hero-content");
+      const tradicaoBg = document.getElementById("tradicao-bg");
+      const decorItems = document.querySelectorAll(".decor-item");
+
+      window.addEventListener("scroll", () => {
+        const scrollY = window.scrollY;
+
+        // Fundo do hero se move mais devagar (parallax 0.35x)
+        if (heroBg && scrollY < window.innerHeight * 1.5) {
+          heroBg.style.transform = `translate3d(0, ${scrollY * 0.35}px, 0)`;
+        }
+
+        // Conteúdo do hero sobe e esmaece suavemente
+        if (heroContent && scrollY < window.innerHeight) {
+          const ratio = Math.min(scrollY / (window.innerHeight * 0.75), 1);
+          heroContent.style.transform = `translate3d(0, ${-scrollY * 0.22}px, 0)`;
+          heroContent.style.opacity = (1 - ratio * 1.15).toFixed(2);
+        }
+
+        // Fundo da Tradição
+        if (tradicaoBg) {
+          const rect = tradicaoBg.parentElement.getBoundingClientRect();
+          if (rect.top < window.innerHeight && rect.bottom > 0) {
+            const offset = (window.innerHeight - rect.top) * 0.18;
+            tradicaoBg.style.transform = `translate3d(0, ${offset}px, 0)`;
+          }
+        }
+
+        // Partículas decorativas com velocidades diferentes
+        decorItems.forEach(item => {
+          const speed = parseFloat(item.getAttribute("data-speed") || "0.2");
+          item.style.transform = `translate3d(0, ${scrollY * speed}px, 0)`;
+        });
+      }, { passive: true });
+    }
+
+    /**
+     * Faixa Marquee Interativa (Muda de velocidade e sentido conforme o scroll)
+     */
+    function configurarMarqueeInterativo() {
+      const track = document.getElementById("marquee-track");
+      if (!track) return;
+
+      let position = 0;
+      let lastScrollY = window.scrollY;
+      let scrollSpeed = 1;
+      let baseSpeed = 0.8; // Velocidade contínua
+      let targetDirection = -1; // -1 = para a esquerda, 1 = para a direita
+      let currentDirection = -1;
+
+      window.addEventListener("scroll", () => {
+        const currentScroll = window.scrollY;
+        const delta = currentScroll - lastScrollY;
+        lastScrollY = currentScroll;
+
+        if (delta > 0) {
+          targetDirection = -1; // Rolar para baixo acelera para a esquerda
+          scrollSpeed = Math.min(Math.abs(delta) * 0.25 + 1.2, 5);
+        } else if (delta < 0) {
+          targetDirection = 1; // Rolar para cima inverte para a direita
+          scrollSpeed = Math.min(Math.abs(delta) * 0.25 + 1.2, 5);
+        }
+      }, { passive: true });
+
+      function animarMarquee() {
+        if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          // Inércia suave na desaceleração
+          scrollSpeed += (1 - scrollSpeed) * 0.05;
+          currentDirection += (targetDirection - currentDirection) * 0.1;
+
+          position += baseSpeed * scrollSpeed * currentDirection;
+
+          const trackWidth = track.scrollWidth / 2;
+          if (position <= -trackWidth) {
+            position = 0;
+          } else if (position >= 0) {
+            position = -trackWidth;
+          }
+
+          track.style.transform = `translate3d(${position}px, 0, 0)`;
+        }
+        requestAnimationFrame(animarMarquee);
+      }
+      requestAnimationFrame(animarMarquee);
+    }
+
+    /**
+     * Efeito 3D Tilt e Brilho Radial nos Cards dos Canais
+     */
+    function configurarTiltCards() {
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || window.innerWidth < 768) return;
+
+      const cards = document.querySelectorAll(".tilt-card");
+
+      cards.forEach(card => {
+        card.addEventListener("mousemove", (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+
+          // Ângulos sutis de inclinação (máx 6 graus)
+          const rotateX = ((y - centerY) / centerY) * -5.5;
+          const rotateY = ((x - centerX) / centerX) * 5.5;
+
+          card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-6px)`;
+          card.style.setProperty("--mouse-x", `${x}px`);
+          card.style.setProperty("--mouse-y", `${y}px`);
+        });
+
+        card.addEventListener("mouseleave", () => {
+          card.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)";
+        });
+      });
+    }
+
+    /**
+     * Botões com Efeito Magnético Leve
+     */
+    function configurarBotoesMagneticos() {
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || window.innerWidth < 768) return;
+
+      const buttons = document.querySelectorAll(".magnetic-btn");
+
+      buttons.forEach(btn => {
+        btn.addEventListener("mousemove", (e) => {
+          const rect = btn.getBoundingClientRect();
+          const x = e.clientX - rect.left - rect.width / 2;
+          const y = e.clientY - rect.top - rect.height / 2;
+
+          // Atração magnética sutil (deslocamento de 6 a 10px)
+          btn.style.transform = `translate3d(${x * 0.22}px, ${y * 0.22}px, 0)`;
+        });
+
+        btn.addEventListener("mouseleave", () => {
+          btn.style.transform = "translate3d(0, 0, 0)";
+        });
+      });
+    }
+
+    /**
+     * Monitoramento Contínuo da Direção de Rolagem (Up / Down)
+     */
+    let scrollDirection = "down";
+    let lastScrollY = window.scrollY;
+
+    function monitorarDirecaoScroll() {
+      window.addEventListener("scroll", () => {
+        const currentScrollY = window.scrollY;
+        const diff = currentScrollY - lastScrollY;
+
+        if (Math.abs(diff) > 2) {
+          scrollDirection = diff > 0 ? "down" : "up";
+        }
+        lastScrollY = currentScrollY;
+      }, { passive: true });
+    }
+
+    /**
+     * Revelação Bidirecional com IntersectionObserver
+     * threshold: 0.15 e rootMargin: "-5% 0px -5% 0px"
+     * Anima ao entrar e reverte ao sair, funcionando nos dois sentidos (descer e subir)
+     */
+    function configurarRevelacaoAoScroll() {
+      const animElements = document.querySelectorAll(
+        ".anim-fade-up, .anim-fade-left, .anim-fade-right, .anim-zoom-in, .anim-clip-mask"
+      );
+
+      // Converte delays inline em variáveis CSS para aplicar apenas na entrada
+      animElements.forEach(el => {
+        const inlineDelay = el.style.transitionDelay;
+        if (inlineDelay && inlineDelay !== "0s") {
+          el.setAttribute("data-delay", "true");
+          el.style.setProperty("--anim-delay", inlineDelay);
+          el.style.transitionDelay = "";
+        }
+      });
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          const el = entry.target;
+
+          if (entry.isIntersecting) {
+            // Entrou na tela: aplica a direção correta conforme o scroll atual
+            if (scrollDirection === "down") {
+              el.classList.add("from-bottom");
+              el.classList.remove("from-top");
+            } else {
+              el.classList.add("from-top");
+              el.classList.remove("from-bottom");
+            }
+            // Adiciona classe de visibilidade
+            el.classList.add("is-visible");
+            el.classList.add("is-in-view");
+          } else {
+            // Saiu da tela: remove visibilidade para permitir animação reversa ao retornar
+            el.classList.remove("is-visible");
+            el.classList.remove("is-in-view");
+
+            // Configura o estado para quando retornar
+            const rect = entry.boundingClientRect;
+            if (rect.top > window.innerHeight) {
+              // Saiu por baixo: ao descer a página novamente, virá de baixo
+              el.classList.add("from-bottom");
+              el.classList.remove("from-top");
+            } else if (rect.bottom < 0) {
+              // Saiu por cima: ao subir a página novamente, virá de cima
+              el.classList.add("from-top");
+              el.classList.remove("from-bottom");
+            }
+          }
+        });
+      }, {
+        threshold: 0.15,
+        rootMargin: "-5% 0px -5% 0px"
+      });
+
+      animElements.forEach(el => observer.observe(el));
+
+      // Salvaguarda: verifica se algum elemento já está na tela e garante que fique visível
+      function forcarElementosVisiveis() {
+        const vHeight = window.innerHeight;
+        animElements.forEach(el => {
+          const rect = el.getBoundingClientRect();
+          if (rect.top < vHeight * 0.95 && rect.bottom > 0) {
+            el.classList.add("is-visible");
+            el.classList.add("is-in-view");
+          }
+        });
+      }
+
+      forcarElementosVisiveis();
+      window.addEventListener("resize", forcarElementosVisiveis, { passive: true });
+    }
+
+    /**
+     * Contadores Numéricos Animados Bidirecionais
+     * Reiniciam ao sair da tela e disparam novamente ao voltar (subindo ou descendo)
+     */
+    let contadorTimers = [];
+
+    function configurarContadores() {
+      const section = document.getElementById("counters-section");
+      const counters = document.querySelectorAll(".counter-number");
+      if (!section || !counters.length) return;
+
+      function resetarContadores() {
+        contadorTimers.forEach(t => clearInterval(t));
+        contadorTimers = [];
+
+        counters.forEach(counter => {
+          const suffix = counter.getAttribute("data-suffix") || "";
+          const prefix = counter.getAttribute("data-prefix") || "";
+          counter.textContent = `${prefix}0${suffix}`;
+        });
+      }
+
+      function iniciarContadores() {
+        resetarContadores();
+
+        counters.forEach(counter => {
+          const target = parseInt(counter.getAttribute("data-target"), 10);
+          const suffix = counter.getAttribute("data-suffix") || "";
+          const prefix = counter.getAttribute("data-prefix") || "";
+          const duracao = 1500;
+          const frames = 45;
+          const stepTime = duracao / frames;
+          let currentFrame = 0;
+
+          const timer = setInterval(() => {
+            currentFrame++;
+            const progress = currentFrame / frames;
+            // Easing cúbico (.22, 1, .36, 1)
+            const eased = 1 - Math.pow(1 - progress, 3);
+            const currentVal = Math.round(target * eased);
+            counter.textContent = `${prefix}${currentVal}${suffix}`;
+
+            if (currentFrame >= frames) {
+              clearInterval(timer);
+              counter.textContent = `${prefix}${target}${suffix}`;
+            }
+          }, stepTime);
+
+          contadorTimers.push(timer);
+        });
+      }
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            iniciarContadores();
+          } else {
+            resetarContadores();
+          }
+        });
+      }, {
+        threshold: 0.15,
+        rootMargin: "-5% 0px -5% 0px"
+      });
+
+      observer.observe(section);
+    }
+
+    /**
+     * Inicialização Geral
+     */
+    document.addEventListener("DOMContentLoaded", () => {
+      // 1. Monitoramento da direção da rolagem
+      monitorarDirecaoScroll();
+
+      // 2. Renderiza os cards dos canais com logos em blocos de 64px e fallback
+      renderizarCanais();
+
+      // 3. Barra de progresso de rolagem no topo
+      configurarBarraProgresso();
+
+      // 4. Efeitos de cabeçalho e mobile
+      configurarScrollEfeitos();
+
+      // 5. Parallax no Hero e na Tradição
+      configurarParallax();
+
+      // 6. Marquee interativo com velocidade e direção pelo scroll
+      configurarMarqueeInterativo();
+
+      // 7. Efeito 3D Tilt nos cards
+      configurarTiltCards();
+
+      // 8. Efeito Magnético nos botões
+      configurarBotoesMagneticos();
+
+      // 9. Revelação escalonada bidirecional ao scroll (sobe e desce)
+      configurarRevelacaoAoScroll();
+
+      // 10. Contadores numéricos bidirecionais
+      configurarContadores();
+
+      // 11. Ano atual no footer
+      const anoSpan = document.getElementById("ano-atual");
+      if (anoSpan) anoSpan.textContent = new Date().getFullYear();
+    });
+  </script>
+</body>
+</html>
