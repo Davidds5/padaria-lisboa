@@ -2064,7 +2064,7 @@
       /* Barra Mobile e WhatsApp */
       .mobile-bottom-bar {
         display: block;
-        padding: 10px 14px;
+        padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
       }
 
       .mobile-btn-pedir {
@@ -2072,16 +2072,24 @@
         font-size: 0.92rem;
       }
 
+      /* Quando a barra inferior aparece, sobe o WhatsApp para 76px para nunca encavalar */
       .whatsapp-floating {
-        bottom: 64px;
+        bottom: 22px;
         right: 14px;
-        width: 46px;
-        height: 46px;
+        width: 48px;
+        height: 48px;
+        transition: bottom 0.3s ease, transform 0.3s ease;
+        z-index: 950;
+      }
+
+      body.has-mobile-bar .whatsapp-floating,
+      .mobile-bottom-bar.show ~ .whatsapp-floating {
+        bottom: calc(76px + env(safe-area-inset-bottom));
       }
 
       .whatsapp-floating svg {
-        width: 25px;
-        height: 25px;
+        width: 26px;
+        height: 26px;
       }
     }
   </style>
@@ -2640,8 +2648,10 @@
         if (hero) {
           if (scrollY > hero.offsetHeight - 150) {
             mobileBar.classList.add("show");
+            document.body.classList.add("has-mobile-bar");
           } else {
             mobileBar.classList.remove("show");
+            document.body.classList.remove("has-mobile-bar");
           }
         }
       }, { passive: true });
